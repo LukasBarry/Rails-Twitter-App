@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Twits</h1>
+
+<div class="jumbotron">
+<div class="panel-heading">
+  <p>
+    <strong>Message:</strong>
+    <%= @tweet.message %>
+  </p>
+</div>
+
+<div class="panel-body">
+  <p>
+    <strong>User:</strong>
+    <%= @tweet.user.username %>
+  </p>
+</div>
+</div>
+
+<%= link_to 'Edit', edit_tweet_path(@tweet), class: "btn btn-primary" %> |
+<%= link_to 'Back', tweets_path, class: "btn btn-primary" %>
