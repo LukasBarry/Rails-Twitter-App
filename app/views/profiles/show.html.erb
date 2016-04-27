@@ -1,19 +1,19 @@
-<div class="containter">
 <div class="row">
   <div class= "col-xs-4">
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
+      <div class="panel-body">
   <h3><%= @user.name %></h3>
-  <h5><%= @user.username %></h5>
-  <h5><p><%= @user.bio %></p></h5>
+  <h5><strong><%= @user.username %></strong></h5>
+  <p><%= @user.bio %></p>
   <h5><%= @user.location %></h5>
   <h5>Joined on <%= @user.created_at.strftime("%B %Y") %></h5>
-
+  <br />
+  <br />
   <%= @user.relationships.count %> Following
   <br />
   <% @user.relationships.each do |relationship| %>
     <%=link_to relationship.friend.name, profile_path(relationship.friend) %>
   <%end%>
-  <br />
   <br />
   <%= pluralize(@user.inverse_relationships.count, "Follower") %>.
   <br />
@@ -21,6 +21,7 @@
     <%=link_to friend.name, profile_path(friend) %> <br />
   <%end%>
   </div>
+</div>
 </div>
 
   <div class= "col-xs-7">
@@ -44,4 +45,3 @@
     <%= link_to "Follow", relationships_path(friend_id: @user), method: :post %>
   <% end %>
 <% end %>
-</div>
