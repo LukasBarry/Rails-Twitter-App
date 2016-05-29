@@ -15,7 +15,8 @@
     <%=link_to relationship.friend.name, profile_path(relationship.friend) %>
   <%end%>
   <br />
-  <%= pluralize(@user.inverse_relationships.count, "Follower") %>.
+  <br />
+  <%= pluralize(@user.inverse_relationships.count, "Follower") %>:
   <br />
   <% @user.inverse_friends.each do |friend| %>
     <%=link_to friend.name, profile_path(friend) %> <br />
